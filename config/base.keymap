@@ -9,6 +9,7 @@
 #endif
 
 #include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/glove80.h"
 #include "zmk-helpers/unicode-chars/greek.dtsi"
 #include "zmk-helpers/unicode-chars/german.dtsi"
 
@@ -22,7 +23,6 @@
 
 #include "combos.dtsi"  // requires layer aliases
 #include "mouse.dtsi"
-#include "extra_keys.h"
 
 #define XXX &none
 #define ___ &trans
