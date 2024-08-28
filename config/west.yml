@@ -26,6 +26,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
+    - name: sebb3
+      url-base: https://github.com/sebb3
 
   projects:
     - name: zmk-helpers
@@ -37,12 +39,17 @@ manifest:
     - name: zmk-tri-state
       revision: main
       path: modules/tri-state
+    - name: glove80-indicators
+      revision: main
+      path: modules/glove80-indicators
+      remote: sebb3
 
     # ZMK with Zephyr namespaced under /zmk. This requires that ZMK imports
     # Zephyr with a path other than `zephyr` (as in `going-modular`).
     - name: zmk
-      revision: going-modular
+      revision: moergo
       path: .
+      remote: sebb3
       import:
         file: app/west.yml
         path-prefix: zmk
