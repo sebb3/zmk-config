@@ -68,6 +68,26 @@ build expr *west_args: _parse_combos
         just _build_single "$board" "$shield" {{ west_args }}
     done
 
+combine: (build "all")
+    cat {{ out }}/glove80_lh.uf2 {{ out }}/glove80_rh.uf2 >  {{ out }}/glove80.uf2
+
+
+flash: combine
+    #!/usr/bin/env fish
+    set disks GLV80RHBOOT GLV80LHBOOT
+    for disk in $disks
+        if test -e "/Volumes/$disk"
+            echo "Found $disk"
+        else
+            echo "Error: $disk not found"
+            exit 1
+        end
+        cp {{ out }}/glove80.uf2 "/Volumes/$disk"
+        diskutil unmount "/Volumes/$disk"
+        # Ignore disk not ejected properly warnings for GLV80 volumes
+    end
+
+
 # clear build cache and artifacts
 clean:
     rm -rf {{ build }} {{ out }}

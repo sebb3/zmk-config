@@ -1,0 +1,9 @@
+/ {
+    behaviors {
+        swedish_caps_word: swedish_caps_word {
+            compatible = "zmk,behavior-caps-word";
+            #binding-cells = <0>;
+            continue-list = <UNDERSCORE MINUS BACKSPACE DELETE RF2 RF3 RF4>;
+        };
+    };
+};
